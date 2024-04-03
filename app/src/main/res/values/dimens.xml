@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_container">16dp</dimen>
+    <dimen name="space_1x">4dp</dimen>
+    <dimen name="space_2x">8dp</dimen>
+    <dimen name="space_3x">12dp</dimen>
+    <dimen name="space_4x">16dp</dimen>
+
+    <dimen name="radius_xs">4dp</dimen>
+    <dimen name="radius_s">8dp</dimen>
+</resources>

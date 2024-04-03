@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_2x"
+    android:background="@drawable/background_card"
+    android:padding="@dimen/padding_container">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_authorization_history_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/transaction_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/id"
+        app:layout_constraintTop_toTopOf="@id/id"
+        tools:text="id" />
+
+    <TextView
+        android:id="@+id/commerce_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_commerce_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id" />
+
+    <TextView
+        android:id="@+id/transaction_commerce_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/commerce_code"
+        app:layout_constraintTop_toTopOf="@id/commerce_code"
+        tools:text="Transaction commerce code" />
+
+    <TextView
+        android:id="@+id/terminal_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_terminal_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/commerce_code" />
+
+    <TextView
+        android:id="@+id/transaction_terminal_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/terminal_code"
+        app:layout_constraintTop_toTopOf="@id/terminal_code"
+        tools:text="Transaction terminal code" />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/terminal_code" />
+
+    <TextView
+        android:id="@+id/transaction_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/amount"
+        app:layout_constraintTop_toTopOf="@id/amount"
+        tools:text="Transaction amount" />
+
+    <TextView
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amount" />
+
+    <TextView
+        android:id="@+id/transaction_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/card"
+        app:layout_constraintTop_toTopOf="@id/card"
+        tools:text="Transaction card" />
+
+    <TextView
+        android:id="@+id/receipt_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_receipt_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card" />
+
+    <TextView
+        android:id="@+id/transaction_receipt_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/receipt_id"
+        app:layout_constraintTop_toTopOf="@id/receipt_id"
+        tools:text="Transaction receipt id" />
+
+    <TextView
+        android:id="@+id/rrn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_1x"
+        android:text="@string/feat_main_authorization_history_rrn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/receipt_id" />
+
+    <TextView
+        android:id="@+id/transaction_rrn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintStart_toEndOf="@id/rrn"
+        app:layout_constraintTop_toTopOf="@id/rrn"
+        tools:text="Transaction rrn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="feat_main_app_name">PaymentsApp</string>
+    <string name="feat_main_authorization_id">Id</string>
+    <string name="feat_main_authorization_commerceCode">Commerce Code</string>
+    <string name="feat_main_authorization_terminalCode">Terminal Code</string>
+    <string name="feat_main_authorization_amount">Amount</string>
+    <string name="feat_main_authorization_card">Card Number</string>
+    <string name="feat_main_authorization_new_authorization">New authorization</string>
+    <string name="feat_main_authorization_authorize_transaction">Authorize transaction</string>
+    <string name="feat_main_authorization_error">The transaction was not authorized please check the data.</string>
+    <string name="feat_main_authorization_success">The transaction was authorized and saved into the database.</string>
+    <string name="feat_main_authorization_denied">The transaction was denied please check the information and try again.</string>
+    <string name="feat_main_authorization_authorization">Authorize transaction</string>
+    <string name="feat_main_authorization_history_title">Authorizations history\n</string>
+    <string name="feat_main_authorization_history_id">"Transaction id: "</string>
+    <string name="feat_main_authorization_history_commerce_code">Commerce code:</string>
+    <string name="feat_main_authorization_history_terminal_code">Terminal code:</string>
+    <string name="feat_main_authorization_history_amount">Amount:</string>
+    <string name="feat_main_authorization_history_card">Card number:</string>
+    <string name="feat_main_authorization_history_receipt_id">Receipt ID:</string>
+    <string name="feat_main_authorization_history_rrn">"rrn:"</string>
+    <string name="feat_main_authorization_authorization_list">Authorization list</string>
+    <string name="feat_main_search_transaction_error">Order not found</string>
+    <string name="feat_main_search_transaction_title">Search Transaction</string>
+    <string name="feat_main_search_transaction_search_transaction">"Search transaction "</string>
+    <string name="feat_main_search_transaction_receipt_id">Enter the receipt ID</string>
+    <string name="feat_main_search_transaction_search_error">There are no orders with that receipt id</string>
+    <string name="feat_main_annulment_error">There was an error with the annulment please try again.</string>
+    <string name="feat_main_transaction_detail_title">Transaction detail</string>
+    <string name="feat_main_transaction_detail_annulment">Annul transaction</string>
+    <string name="feat_main_transaction_detail_success">The transaction was annulled and deleted from the database.</string>
+    <string name="feat_main_transaction_detail_error">There was an error try again later.</string>
+    <string name="feat_main_authorization_history_error">There are no orders.</string>
+    <string name="feat_main_authorization_history_no_transactions">There are no transactions to show.</string>
+</resources>

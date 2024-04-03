@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/authorization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_authorization_authorization" />
+
+    <Button
+        android:id="@+id/authorization_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_authorization_authorization_list" />
+
+    <Button
+        android:id="@+id/search_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_search_transaction_search_transaction" />
+
+
+</LinearLayout>
