@@ -108,12 +108,13 @@
 
     <TextView
         android:id="@+id/transaction_receipt_id"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_1x"
+        android:layout_marginStart="@dimen/space_2x"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/receipt_id"
         app:layout_constraintTop_toTopOf="@id/receipt_id"
-        tools:text="Transaction receipt id" />
+        tools:text="Transaction receipt id " />
 
     <TextView
         android:id="@+id/rrn"
@@ -122,7 +123,7 @@
         android:layout_marginTop="@dimen/space_1x"
         android:text="@string/feat_main_authorization_history_rrn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/receipt_id" />
+        app:layout_constraintTop_toBottomOf="@id/transaction_receipt_id" />
 
     <TextView
         android:id="@+id/transaction_rrn"

@@ -59,7 +59,7 @@ class SearchTransactionFragment : Fragment() {
                 }
             }
             parentFragmentManager.beginTransaction()
-                .replace(com.google.android.material.R.id.container, transactionDetailFragment)
+                .replace(R.id.fragment_container, transactionDetailFragment)
                 .addToBackStack(null)
                 .commit()
         }

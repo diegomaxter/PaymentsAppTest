@@ -18,15 +18,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class PaymentsModule {
 
-    companion object {
-        private const val BASE_URL = "http://192.168.1.7:8080"
-    }
-
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl("http://192.168.1.7:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

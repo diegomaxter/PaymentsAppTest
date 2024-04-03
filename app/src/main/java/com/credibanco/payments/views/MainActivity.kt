@@ -8,6 +8,7 @@ import com.credibanco.payments.R
 import com.credibanco.payments.databinding.ActivityMainBinding
 import com.credibanco.payments.views.authorization.AuthorizationFragment
 import com.credibanco.payments.views.history.AuthorizationHistoryFragment
+import com.credibanco.payments.views.home.HomeFragment
 import com.credibanco.payments.views.search.SearchTransactionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,43 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.authorization.setOnClickListener {
+        binding.fragmentContainer.apply {
             val transaction = supportFragmentManager.beginTransaction()
-            val fragment = AuthorizationFragment()
+            val fragment = HomeFragment()
             transaction.replace(R.id.fragment_container, fragment)
-            transaction.addToBackStack(null)
+            transaction.addToBackStack("home")
             transaction.commit()
-            binding.fragmentContainer.visibility = View.VISIBLE
-            backPress()
-        }
-        binding.authorizationList.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = AuthorizationHistoryFragment()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            binding.fragmentContainer.visibility = View.VISIBLE
-            backPress()
-        }
-        binding.searchTransaction.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = SearchTransactionFragment()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-            binding.fragmentContainer.visibility = View.VISIBLE
-            backPress()
-        }
-    }
-
-    private fun backPress() {
-        onBackPressedDispatcher.addCallback {
-            if (binding.fragmentContainer.visibility == View.GONE) {
-                finish()
-            }
-            binding.fragmentContainer.visibility = View.GONE
-            supportFragmentManager.popBackStack()
         }
     }
 }

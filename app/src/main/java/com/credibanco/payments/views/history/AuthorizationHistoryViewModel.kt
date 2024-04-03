@@ -1,5 +1,6 @@
 package com.credibanco.payments.views.history
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -41,6 +42,7 @@ class AuthorizationHistoryViewModel @Inject constructor(
                     authorizations = authorizations,
                     isLoading = false
                 )
+                Log.d("AuthorizationHistoryViewModel", "getAllTransactions: $authorizations")
             }else{
                 internalState.value = internalState.value.copy(
                     isLoading = false,

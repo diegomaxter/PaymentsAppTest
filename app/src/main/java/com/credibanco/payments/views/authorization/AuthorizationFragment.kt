@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -65,7 +67,7 @@ class AuthorizationFragment : Fragment() {
                 getString(R.string.feat_main_authorization_success),
                 Toast.LENGTH_SHORT
             ).show()
-            activity?.finish()
+            parentFragmentManager.popBackStack("home", 0)
         }
         if (state.error != null) {
             Toast.makeText(
