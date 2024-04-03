@@ -110,7 +110,7 @@
         android:id="@+id/transaction_receipt_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_2x"
+        android:layout_marginStart="@dimen/space_1x"
         app:layout_constraintStart_toEndOf="@id/receipt_id"
         app:layout_constraintTop_toTopOf="@id/receipt_id"
         tools:text="Transaction receipt id" />

@@ -1,29 +1,61 @@
 package com.credibanco.payments.views
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.credibanco.payments.R
-import com.credibanco.payments.views.authorization.AuthorizationActivity
-import com.credibanco.payments.views.history.AuthorizationHistoryActivity
-import com.credibanco.payments.views.search.SearchTransactionActivity
+import com.credibanco.payments.databinding.ActivityMainBinding
+import com.credibanco.payments.views.authorization.AuthorizationFragment
+import com.credibanco.payments.views.history.AuthorizationHistoryFragment
+import com.credibanco.payments.views.search.SearchTransactionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        findViewById<Button>(R.id.authorization).setOnClickListener {
-            startActivity(Intent(this, AuthorizationActivity::class.java))
+        binding.authorization.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            val fragment = AuthorizationFragment()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+            binding.fragmentContainer.visibility = View.VISIBLE
+            backPress()
         }
-        findViewById<Button>(R.id.authorization_list).setOnClickListener {
-            startActivity(Intent(this, AuthorizationHistoryActivity::class.java))
+        binding.authorizationList.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            val fragment = AuthorizationHistoryFragment()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+            binding.fragmentContainer.visibility = View.VISIBLE
+            backPress()
         }
-        findViewById<Button>(R.id.search_transaction).setOnClickListener {
-            startActivity(Intent(this, SearchTransactionActivity::class.java))
+        binding.searchTransaction.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            val fragment = SearchTransactionFragment()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+            binding.fragmentContainer.visibility = View.VISIBLE
+            backPress()
+        }
+    }
+
+    private fun backPress() {
+        onBackPressedDispatcher.addCallback {
+            if (binding.fragmentContainer.visibility == View.GONE) {
+                finish()
+            }
+            binding.fragmentContainer.visibility = View.GONE
+            supportFragmentManager.popBackStack()
         }
     }
 }

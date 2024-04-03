@@ -1,4 +1,4 @@
-package com.credibanco.payments.viewmodels
+package com.credibanco.payments.views.authorization
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel

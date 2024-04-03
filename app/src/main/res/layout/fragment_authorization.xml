@@ -6,7 +6,7 @@
     android:layout_marginTop="@dimen/space_1x"
     android:orientation="vertical"
     android:padding="@dimen/space_4x"
-    tools:context=".views.authorization.AuthorizationActivity">
+    tools:context=".views.authorization.AuthorizationFragment">
 
     <ProgressBar
         android:id="@+id/progress"

@@ -25,10 +25,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.authorization.AuthorizationActivity" />
-        <activity android:name=".views.history.AuthorizationHistoryActivity" />
-        <activity android:name=".views.search.SearchTransactionActivity" />
-        <activity android:name=".views.annulment.TransactionDetailActivity" />
     </application>
-
 </manifest>

@@ -1,34 +1,42 @@
 package com.credibanco.payments.views.annulment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.credibanco.payments.R
-import com.credibanco.payments.databinding.ActivityTransactionDetailBinding
+import com.credibanco.payments.databinding.FragmentTransactionDetailBinding
 import com.credibanco.payments.domain.Transaction
-import com.credibanco.payments.viewmodels.TransactionDetailState
-import com.credibanco.payments.viewmodels.TransactionDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
 @AndroidEntryPoint
-class TransactionDetailActivity : AppCompatActivity() {
+class TransactionDetailFragment : Fragment() {
     private val viewModel: TransactionDetailViewModel by viewModels()
-    private lateinit var binding: ActivityTransactionDetailBinding
+    private var _binding: FragmentTransactionDetailBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityTransactionDetailBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentTransactionDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.annulmentButton.isEnabled = true
 
-        val transaction = intent.getParcelableExtra<Transaction>("transaction")
+        val transaction = arguments?.getParcelable<Transaction>("transaction")
 
         with(binding.transaction) {
             transactionCard.text = transaction?.card
@@ -39,13 +47,15 @@ class TransactionDetailActivity : AppCompatActivity() {
             transactionReceiptId.text = transaction?.receiptId
             transactionRrn.text = transaction?.rrn
         }
+
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
                     invalidate(state)
                 }
             }
         }
+
         binding.annulmentButton.setOnClickListener {
             viewModel.annulment(
                 receiptId = transaction?.receiptId,
@@ -60,19 +70,24 @@ class TransactionDetailActivity : AppCompatActivity() {
         binding.progress.isVisible = state.isLoading
         if (state.isSuccess) {
             Toast.makeText(
-                this,
+                requireContext(),
                 getString(R.string.feat_main_transaction_detail_success),
                 Toast.LENGTH_SHORT
             ).show()
-            finish()
+            activity?.finish()
         }
         if (state.error != null && !state.isSuccess) {
             Toast.makeText(
-                this,
+                requireContext(),
                 getString(R.string.feat_main_transaction_detail_error),
                 Toast.LENGTH_SHORT
             ).show()
         }
         viewModel.clearState()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
